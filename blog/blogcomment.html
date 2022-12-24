@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+    <html lang="en">
+   
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
+        <!--=============== BOXICONS ===============-->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+        <script src="https://kit.fontawesome.com/1c71e95d0d.js" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+		
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+        <!--=============== SWIPER CSS ===============-->
+        <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css">
+
+        <!--=============== CSS ===============-->
+        <!-- <link rel="stylesheet" href="../assets/css/style2.scss"> -->
+        <link rel="stylesheet" href="../assets/css/style.css">
+        
+        
+
+        
+        <link rel="stylesheet" href="../assets/css/blog.css">
+
+<style>
+  
+.cmmntfrm
+{
+  width: 800px;
+}
+
+
+@media screen and (max-width: 875px) and (min-width: 780px)
+{
+
+}
+
+
+
+@media screen and (max-width:875px)
+{
+  .cmmntfrm
+{
+  width: 700px;
+}
+}
+@media screen and (max-width:790px)
+{
+  .cmmntfrm
+{
+  width: 600px;
+}
+}
+@media screen and (max-width:650px)
+{
+  .cmmntfrm
+{
+  width: 500px;
+}
+}
+@media screen and (max-width:580px)
+{
+  .cmmntfrm
+{
+  width: 450px;
+}
+}
+@media screen and (max-width:480px)
+{
+  .cmmntfrm
+{
+  width: 400px;
+}
+}
+
+
+.button {
+  --background: #275efe;
+  --background-hover: #1d4fe1;
+  --text: #fff;
+  --icon: #fff;
+  display: flex;
+  outline: none;
+  cursor: pointer;
+  border: 0;
+  padding: 9px 20px 9px 12px;
+  border-radius: 11px;
+  line-height: 24px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--b, var(--background));
+  transition: transform 0.3s, background 0.4s;
+  transform: scale(var(--scale, 1)) translateZ(0);
+}
+
+.button:active {
+  --scale: 0.95;
+}
+
+.button:hover {
+  --b: var(--background-hover);
+}
+
+.button .icon,
+.button .text {
+  display: inline-block;
+  vertical-align: top;
+  transform: translateZ(0);
+}
+
+.button .icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  z-index: 1;
+  margin-right: 8px;
+  color: var(--text);
+}
+
+.button .icon svg {
+  width: 96px;
+  height: 96px;
+  display: block;
+  position: absolute;
+  left: -36px;
+  top: -36px;
+  will-change: transform;
+  fill: var(--icon);
+  transform: scale(0.25) translateZ(0);
+  animation: var(--name, var(--name-top, none)) 2400ms ease forwards;
+}
+
+.button .icon svg.bottom {
+  --name: var(--name-bottom, none);
+}
+
+.button .text span {
+  display: inline-block;
+  vertical-align: top;
+  opacity: var(--span-o, 1);
+  transform: translate(var(--span-x, 0), var(--span-y, 0)) rotate(var(--span-r, 0deg)) translateZ(0);
+  transition: transform 0.3s ease var(--span-d, 0s), opacity 0.2s linear var(--span-o-d, 0.3s);
+}
+
+
+.button .text span:nth-child(1) {
+  --span-delay: 0.4s;
+  --span-o-d: 0.325s;
+}
+
+.button .text span:nth-child(2) {
+  --span-delay: 0.45s;
+  --span-o-d: 0.35s;
+}
+
+.button .text span:nth-child(3) {
+  --span-delay: 0.5s;
+  --span-o-d: 0.375s;
+}
+
+.button .text span:nth-child(4) {
+  --span-delay: 0.55s;
+  --span-o-d: 0.4s;
+}
+
+.button .text span:nth-child(5) {
+  --span-delay: 0.6s;
+  --span-o-d: 0.425s;
+}
+
+.button .text span:nth-child(6) {
+  --span-delay: 0.65s;
+  --span-o-d: 0.45s;
+}
+
+.button.delete {
+  --name-top: trash-top;
+  --name-bottom: trash-bottom;
+  --name-text: text;
+  --span-x: -8px;
+  --span-y: 8px;
+  --span-r: -40deg;
+  --span-o: 0;
+}
+
+.button.delete .text span {
+  --span-o-d: 1s;
+  --span-d: var(--span-delay);
+}
+
+.button .text {
+  animation: var(--name-text, none) 2400ms ease forwards;
+}
+
+/* Animations */
+@keyframes trash-bottom {
+
+  25%,
+  32% {
+      transform: translate(32px, 19px) scale(1) translateZ(0);
+  }
+
+  70%,
+  80% {
+      transform: translate(32px, 0) scale(0.25) translateZ(0);
+  }
+
+  90% {
+      transform: translateX(-2px) scale(0.25) translateZ(0);
+  }
+
+  100% {
+      transform: scale(0.25) translateZ(0);
+  }
+}
+
+@keyframes trash-top {
+
+  25%,
+  32% {
+      transform: translate(38px, 4px) scale(1) rotate(-20deg) translateZ(0);
+  }
+
+  70%,
+  80% {
+      transform: translate(32px, 0) scale(0.25) translateZ(0);
+  }
+
+  90% {
+      transform: translateX(-2px) scale(0.25) translateZ(0);
+  }
+
+  100% {
+      transform: scale(0.25) translateZ(0);
+  }
+}
+
+@keyframes text {
+  25% {
+      transform: translate(-4px, -6px) rotate(-20deg) translateZ(0);
+  }
+
+  70% {
+      opacity: 1;
+      transform: translate(-12px, 48px) rotate(-80deg) translateZ(0);
+  }
+
+  71% {
+      opacity: 0;
+  }
+
+  72%,
+  90% {
+      opacity: 0;
+      transform: translateZ(0);
+  }
+
+  100% {
+      opacity: 1;
+  }
+}
+
+
+
+.button2 {
+  --primary: #275EFE;
+  --primary-dark: #2055EE;
+  --primary-darkest: #133FC0;
+  --text: #FFFFFF;
+  --text-opacity: 1;
+  --success: #2B3044;
+  --success-scale: .2;
+  --success-opacity: 0;
+  --border-radius: 7;
+  --overflow: hidden;
+  --rotate: 0;
+  --plane-x: 0;
+  --plane-y: 0;
+  --plane-opacity: 1;
+  --left-wing-background: var(--primary);
+  --left-wing-first-x: 0;
+  --left-wing-first-y: 0;
+  --left-wing-second-x: 50;
+  --left-wing-second-y: 0;
+  --left-wing-third-x: 0;
+  --left-wing-third-y: 100;
+  --left-body-background: var(--primary);
+  --left-body-first-x: 50;
+  --left-body-first-y: 0;
+  --left-body-second-x: 50;
+  --left-body-second-y: 100;
+  --left-body-third-x: 0;
+  --left-body-third-y: 100;
+  --right-wing-background: var(--primary);
+  --right-wing-first-x: 50;
+  --right-wing-first-y: 0;
+  --right-wing-second-x: 100;
+  --right-wing-second-y: 0;
+  --right-wing-third-x: 100;
+  --right-wing-third-y: 100;
+  --right-body-background: var(--primary);
+  --right-body-first-x: 50;
+  --right-body-first-y: 0;
+  --right-body-second-x: 50;
+  --right-body-second-y: 100;
+  --right-body-third-x: 100;
+  --right-body-third-y: 100;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  border: 0;
+  padding: 8px 0;
+  min-width: 100px;
+  text-align: center;
+  margin: 0;
+  line-height: 24px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  background: none;
+  outline: none;
+  color: var(--text);
+  transform: rotate(calc(var(--rotate) * 1deg)) translateZ(0);
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.button2 .left,
+.button2 .right {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: var(--plane-opacity);
+  transform: translate(calc(var(--plane-x) * 1px), calc(var(--plane-y) * 1px)) translateZ(0);
+}
+.button2 .left:before, .button2 .left:after,
+.button2 .right:before,
+.button2 .right:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: calc(var(--border-radius) * 1px);
+  transform: translate(var(--x, 0.4%), var(--y, 0)) translateZ(0);
+  z-index: var(--z-index, 2);
+  background: var(--background, var(--left-wing-background));
+  -webkit-clip-path: polygon(calc(var(--first-x, var(--left-wing-first-x)) * 1%) calc(var(--first-y, var(--left-wing-first-y)) * 1%), calc(var(--second-x, var(--left-wing-second-x)) * 1%) calc(var(--second-y, var(--left-wing-second-y)) * 1%), calc(var(--third-x, var(--left-wing-third-x)) * 1%) calc(var(--third-y, var(--left-wing-third-y)) * 1%));
+          clip-path: polygon(calc(var(--first-x, var(--left-wing-first-x)) * 1%) calc(var(--first-y, var(--left-wing-first-y)) * 1%), calc(var(--second-x, var(--left-wing-second-x)) * 1%) calc(var(--second-y, var(--left-wing-second-y)) * 1%), calc(var(--third-x, var(--left-wing-third-x)) * 1%) calc(var(--third-y, var(--left-wing-third-y)) * 1%));
+}
+.button2 .left:after {
+  --x: 0;
+  --z-index: 1;
+  --background: var(--left-body-background);
+  --first-x: var(--left-body-first-x);
+  --first-y: var(--left-body-first-y);
+  --second-x: var(--left-body-second-x);
+  --second-y: var(--left-body-second-y);
+  --third-x: var(--left-body-third-x);
+  --third-y: var(--left-body-third-y);
+}
+.button2 .right:before {
+  --x: -.4%;
+  --z-index: 2;
+  --background: var(--right-wing-background);
+  --first-x: var(--right-wing-first-x);
+  --first-y: var(--right-wing-first-y);
+  --second-x: var(--right-wing-second-x);
+  --second-y: var(--right-wing-second-y);
+  --third-x: var(--right-wing-third-x);
+  --third-y: var(--right-wing-third-y);
+}
+.button2 .right:after {
+  --x: 0;
+  --z-index: 1;
+  --background: var(--right-body-background);
+  --first-x: var(--right-body-first-x);
+  --first-y: var(--right-body-first-y);
+  --second-x: var(--right-body-second-x);
+  --second-y: var(--right-body-second-y);
+  --third-x: var(--right-body-third-x);
+  --third-y: var(--right-body-third-y);
+}
+.button2 span {
+  display: block;
+  position: relative;
+  z-index: 4;
+  opacity: var(--text-opacity);
+}
+.button2 span.success {
+  z-index: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 8px;
+  transform: rotate(calc(var(--rotate) * -1deg)) scale(var(--success-scale)) translateZ(0);
+  opacity: var(--success-opacity);
+  color: var(--success);
+}
+
+
+
+body .dribbble {
+  position: fixed;
+  display: block;
+  right: 20px;
+  bottom: 20px;
+}
+body .dribbble img {
+  display: block;
+  height: 28px;
+}
+
+
+            
+.switch-button {
+	position: relative;
+	height: 3rem;
+	background:#ececec;
+	overflow: hidden;
+	dispLay: flex;
+	align-items : center;
+	border-radius : 4rem;
+	cursor: pointer;
+}
+
+.switch-button:before {
+	content: "";
+	position: absolute;
+	Left:-50%;
+	top:-100%;
+	height: 300%;
+	width: 100%;
+	background:linear-gradient(to top right,#702F4E,#164373);
+	border-radius: 50%;
+	transition: 0.25s;
+}
+
+.switch-item
+{
+	position: relative;
+	padding:3rem;
+	color:#555;
+	font-weight: 600;
+	transition: 0.3s;
+
+
+}
+.switch-item:first-child
+{
+	color:#FFF;
+
+}
+
+.switch-button.switch-active .switch-item:first-child
+{
+	color: #555;
+}
+
+.switch-button.switch-active .switch-item:last-child
+{
+	color: #FFF;
+}
+
+.switch-button.switch-active:before
+{
+	left: 50%;
+	background:linear-gradient(to top right,#F64373,#164373);
+
+}
+
+
+
+        </style>
+
+        <title> Responsive portfolio website Ansel </title>
+    </head>
+
+    <!-- Header -->
+    <body>
+
+        
+    
+        
+
+
+
+        <!--=============== HEADER ===============-->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="" class="nav__logo">Onur</a>
+                <!-- <div class="home__buttons">
+                    <a href="#home" class="button portfoliobutton">
+                        PORTFOLIO
+                    </a>
+                    <a href="../home.php" class="button button--ghost">BLOG</a>
+                </div> -->
+
+
+                <div class="pricing-table-container1">
+                <div class="pricing-header1" style="display: flex;">
+
+                    <div class="plans-switch-container1" >  
+                        <a href="../layouts/index.html"> <span class="monthly1" style="color:white;">PORTFOLİO &nbsp;</span> </a>
+                    </div>
+                     <div class="plans-switch-container1">  
+                       <a href="../blog/blog.html"> <span class="monthly1"  style="color:white;">BLOG</span></a>
+                    </div>
+                </div>
+
+
+                </div>
+                    <div class="close-btn">
+                        <span class="fas fa-times"></span>
+                    </div>
+
+                    <div class="wrapper">
+                        <div class="search-data">
+                            <input type="text" required>
+                            <div class="line"></div>
+                            <label >Type to search...</label>
+                            <span class="fas fa-search"></span>
+                        </div>
+                
+                     </div>
+
+                <div class="nav__menu">
+                    <ul class="nav__list">
+
+
+                        <li class="nav__item">
+                            <a href="#" class="nav__link active-link">   <i class='bx bx-home'></i>     
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#" class="nav__link ">   <i class='bx bx-user' ></i>    
+                            </a>
+                        </li>
+
+
+
+                         <li class="nav__item">
+                            <a href="#skills" class="nav__link"> <i class='bx bx-book'></i> </a>
+                        </li>
+                        
+                        <li class="nav__item">
+                            <a href="#work" class="nav__link">
+                                
+                            <div class="search-btn"> 
+                                <span class="fas fa-search iconic"></span>
+                            </div>
+                            </a>
+                        </li>
+                       
+
+                        <li class="nav__item">
+                            <a href="#contact" class="nav__link">
+                             <i class='bx bx-log-in'></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- theme changing button  -->
+                <i class='bx bx-moon change-theme' id="theme-button" ></i>
+
+
+            </nav>
+        </header>
+
+
+        <div class="row container" style="margin: auto;">
+            <main class="main" style="margin:auto;">
+          
+          
+              <div class="work__container container grid">
+          
+          
+              </div>
+          
+          
+          
+          
+          
+              <div class="row container " style="margin:auto; margin-top: 100px;">
+          
+          
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 ">
+                      <div class="blog-post">
+          
+                        <img width="1500px" style="border-radius: 20px; height: 500px; "
+                          src="https://images.unsplash.com/photo-1670754270016-60c5bd5cf1da?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=427&q=80"
+                          alt="">
+          
+          
+                      </div>
+          
+          
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 ">
+                      <div class="blog-post">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Rerum porro quae corporis minima illo. Ipsam, quidem fugiat nihil commodi veniam asperiores illum?
+                        Sapiente quam vero architecto debitis nostrum nemo, voluptate reprehenderit iure natus sunt at nulla
+                        necessitatibus minus voluptas ipsa iusto mollitia voluptatem non saepe corporis similique enim numquam in
+                        accusamus! Aliquid praesentium sint natus sit eaque excepturi earum qui eum, ipsum ab quos debitis
+                        accusamus
+                        non nihil omnis blanditiis voluptatem ad architecto. Cum voluptate nisi voluptatem iste deserunt amet
+                        corporis
+                        assumenda quas ab autem aliquid, quam omnis. Libero vel eum commodi sapiente reprehenderit perferendis
+                        iste
+                        blanditiis in vero odit laudantium quo porro voluptatum ab harum exercitationem tempore dolorum asperiores
+                        hic,
+                        autem necessitatibus, eveniet delectus cum. Dolores ut, perferendis recusandae nobis adipisci rem
+                        reprehenderit
+                        ratione unde non obcaecati harum minima facilis quas optio cum autem maiores, at ea eum porro! Nemo, eum
+                        repudiandae!
+                        Unde quae quas modi, ut sunt iure omnis corrupti exercitationem vel odio labore earum ipsam adipisci eum?
+                        Qui quas ut
+                        unde nostrum, aliquam nam cum ea consequatur libero veniam similique inventore expedita exercitationem
+                        dolor maxime
+                        dicta quisquam ducimus dolore molestias repudiandae! Ut reprehenderit deserunt voluptates illum minus,
+                        magni sit officia deleniti voluptatum error vitae autem cumque aliquid.Lorem ipsum dolor, sit amet
+                        consectetur adipisicing elit.
+                        Rerum porro quae corporis minima illo. Ipsam, quidem fugiat nihil commodi veniam asperiores illum?
+                        Sapiente quam vero architecto debitis nostrum nemo, voluptate reprehenderit iure natus sunt at nulla
+                        necessitatibus minus voluptas ipsa iusto mollitia voluptatem non saepe corporis similique enim numquam in
+                        accusamus! Aliquid praesentium sint natus sit eaque excepturi earum qui eum, ipsum ab quos debitis
+                        accusamus
+                        non nihil omnis blanditiis voluptatem ad architecto. Cum voluptate nisi voluptatem iste deserunt amet
+                        corporis
+                        assumenda quas ab autem aliquid, quam omnis. Libero vel eum commodi sapiente reprehenderit perferendis
+                        iste
+                        blanditiis in vero odit laudantium quo porro voluptatum ab harum exercitationem tempore dolorum asperiores
+                        hic,
+                        autem necessitatibus, eveniet delectus cum. Dolores ut, perferendis recusandae nobis adipisci rem
+                        reprehenderit
+                        ratione unde non obcaecati harum minima facilis quas optio cum autem maiores, at ea eum porro! Nemo, eum
+                        repudiandae!
+                        Unde quae quas modi, ut sunt iure omnis corrupti exercitationem vel odio labore earum ipsam adipisci eum?
+                        Qui quas ut
+                        unde nostrum, aliquam nam cum ea consequatur libero veniam similique inventore expedita exercitationem
+                        dolor maxime
+                        dicta quisquam ducimus dolore molestias repudiandae! Ut reprehenderit deserunt voluptates illum minus,
+                        magni sit officia deleniti voluptatum error vitae autem cumque aliquid.Lorem ipsum dolor, sit amet
+                        consectetur adipisicing elit.
+                        Rerum porro quae corporis minima illo. Ipsam, quidem fugiat nihil commodi veniam asperiores illum?
+                        Sapiente quam vero architecto debitis nostrum nemo, voluptate reprehenderit iure natus sunt at nulla
+                        necessitatibus minus voluptas ipsa iusto mollitia voluptatem non saepe corporis similique enim numquam in
+                        accusamus! Aliquid praesentium sint natus sit eaque excepturi earum qui eum, ipsum ab quos debitis
+                        accusamus
+                        non nihil omnis blanditiis voluptatem ad architecto. Cum voluptate nisi voluptatem iste deserunt amet
+                        corporis
+                        assumenda quas ab autem aliquid, quam omnis. Libero vel eum commodi sapiente reprehenderit perferendis
+                        iste
+                        blanditiis in vero odit laudantium quo porro voluptatum ab harum exercitationem tempore dolorum asperiores
+                        hic,
+                        autem necessitatibus, eveniet delectus cum. Dolores ut, perferendis recusandae nobis adipisci rem
+                        reprehenderit
+                        ratione unde non obcaecati harum minima facilis quas optio cum autem maiores, at ea eum porro! Nemo, eum
+                        repudiandae!
+                        Unde quae quas modi, ut sunt iure omnis corrupti exercitationem vel odio labore earum ipsam adipisci eum?
+                        Qui quas ut
+                        unde nostrum, aliquam nam cum ea consequatur libero veniam similique inventore expedita exercitationem
+                        dolor maxime
+                        dicta quisquam ducimus dolore molestias repudiandae! Ut reprehenderit deserunt voluptates illum minus,
+                        magni sit officia deleniti voluptatum error vitae autem cumque aliquid.Lorem ipsum dolor, sit amet
+                        consectetur adipisicing elit.
+                        Rerum porro quae corporis minima illo. Ipsam, quidem fugiat nihil commodi veniam asperiores illum?
+                        Sapiente quam vero architecto debitis nostrum nemo, voluptate reprehenderit iure natus sunt at nulla
+                        necessitatibus minus voluptas ipsa iusto mollitia voluptatem non saepe corporis similique enim numquam in
+                        accusamus! Aliquid praesentium sint natus sit eaque excepturi earum qui eum, ipsum ab quos debitis
+                        accusamus
+                        non nihil omnis blanditiis voluptatem ad architecto. Cum voluptate nisi voluptatem iste deserunt amet
+                        corporis
+                        assumenda quas ab autem aliquid, quam omnis. Libero vel eum commodi sapiente reprehenderit perferendis
+                        iste
+                        blanditiis in vero odit laudantium quo porro voluptatum ab harum exercitationem tempore dolorum asperiores
+                        hic,
+                        autem necessitatibus, eveniet delectus cum. Dolores ut, perferendis recusandae nobis adipisci rem
+                        reprehenderit
+                        ratione unde non obcaecati harum minima facilis quas optio cum autem maiores, at ea eum porro! Nemo, eum
+                        repudiandae!
+                        Unde quae quas modi, ut sunt iure omnis corrupti exercitationem vel odio labore earum ipsam adipisci eum?
+                        Qui quas ut
+                        unde nostrum, aliquam nam cum ea consequatur libero veniam similique inventore expedita exercitationem
+                        dolor maxime
+                        dicta quisquam ducimus dolore molestias repudiandae! Ut reprehenderit deserunt voluptates illum minus,
+                        magni sit officia deleniti voluptatum error vitae autem cumque aliquid.Lorem ipsum dolor, sit amet
+                        consectetur adipisicing elit.
+                        Rerum porro quae corporis minima illo. Ipsam, quidem fugiat nihil commodi veniam asperiores illum?
+                        Sapiente quam vero architecto debitis nostrum nemo, voluptate reprehenderit iure natus sunt at nulla
+                        necessitatibus minus voluptas ipsa iusto mollitia voluptatem non saepe corporis similique enim numquam in
+                        accusamus! Aliquid praesentium sint natus sit eaque excepturi earum qui eum, ipsum ab quos debitis
+                        accusamus
+                        non nihil omnis blanditiis voluptatem ad architecto. Cum voluptate nisi voluptatem iste deserunt amet
+                        corporis
+                        assumenda quas ab autem aliquid, quam omnis. Libero vel eum commodi sapiente reprehenderit perferendis
+                        iste
+                        blanditiis in vero odit laudantium quo porro voluptatum ab harum exercitationem tempore dolorum asperiores
+                        hic,
+                        autem necessitatibus, eveniet delectus cum. Dolores ut, perferendis recusandae nobis adipisci rem
+                        reprehenderit
+                        ratione unde non obcaecati harum minima facilis quas optio cum autem maiores, at ea eum porro! Nemo, eum
+                        repudiandae!
+                        Unde quae quas modi, ut sunt iure omnis corrupti exercitationem vel odio labore earum ipsam adipisci eum?
+                        Qui quas ut
+                        unde nostrum, aliquam nam cum ea consequatur libero veniam similique inventore expedita exercitationem
+                        dolor maxime
+                        dicta quisquam ducimus dolore molestias repudiandae! Ut reprehenderit deserunt voluptates illum minus,
+                        magni sit officia deleniti voluptatum error vitae autem cumque aliquid.Lorem ipsum dolor, sit amet
+                        consectetur adipisicing elit.
+                        Rerum porro quae corporis minima illo. Ipsam, quidem fugiat nihil commodi veniam asperiores illum?
+                        Sapiente quam vero architecto debitis nostrum nemo, voluptate reprehenderit iure natus sunt at nulla
+                        necessitatibus minus voluptas ipsa iusto mollitia voluptatem non saepe corporis similique enim numquam in
+                        accusamus! Aliquid praesentium sint natus sit eaque excepturi earum qui eum, ipsum ab quos debitis
+                        accusamus
+                        non nihil omnis blanditiis voluptatem ad architecto. Cum voluptate nisi voluptatem iste deserunt amet
+                        corporis
+                        assumenda quas ab autem aliquid, quam omnis. Libero vel eum commodi sapiente reprehenderit perferendis
+                        iste
+                        blanditiis in vero odit laudantium quo porro voluptatum ab harum exercitationem tempore dolorum asperiores
+                        hic,
+                        autem necessitatibus, eveniet delectus cum. Dolores ut, perferendis recusandae nobis adipisci rem
+                        reprehenderit
+                        ratione unde non obcaecati harum minima facilis quas optio cum autem maiores, at ea eum porro! Nemo, eum
+                        repudiandae!
+                        Unde quae quas modi, ut sunt iure omnis corrupti exercitationem vel odio labore earum ipsam adipisci eum?
+                        Qui quas ut
+                        unde nostrum, aliquam nam cum ea consequatur libero veniam similique inventore expedita exercitationem
+                        dolor maxime
+                        dicta quisquam ducimus dolore molestias repudiandae! Ut reprehenderit deserunt voluptates illum minus,
+                        magni sit officia deleniti voluptatum error vitae autem cumque aliquid.
+          
+          
+                      </div>
+          
+          
+                    </div>
+                  </div>
+                </div>
+          
+          
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 ">
+                      <section class="skills section" id="skills">
+          
+          
+                        <div class=" grid">
+          
+                          <div style="text-align: center; align-items: center; justify-content: flex; width: 100%;  "
+                            class="skills__content">
+                            <h3 class="skills__title">YORUMLAR</h3>
+                            <div>
+                              <div
+                                style="margin-left:0;  left: 0; align-items: baseline; text-align: left; justify-content: baseline;  ">
+                                <i class='bx bx-user' style="left: 0;"></i> Onur Zencirli <br> 16.12.2022 </div>
+                              <div
+                                style="text-align: center; align-items: center; justify-content: flex; width: 100%; border: 1px solid var(--first-color); "
+                                class="skills__content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde omnis maiores fuga excepturi
+                                eligendi veritatis molestiae, commodi sit nulla ut quidem corrupti ducimus,
+                                nostrum odit, eius aut molestias nihil at dignissimos odio quos modi reiciendis.
+          
+                              </div>
+                            </div>
+                            <div>
+                              <div
+                                style="margin-left:0;  left: 0; align-items: baseline; text-align: left; justify-content: baseline;  ">
+                                <i class='bx bx-user' style="left: 0;"></i> Onur Zencirli </div>
+                              <div
+                                style="text-align: center; align-items: center; justify-content: flex; width: 100%; border: 1px solid var(--first-color); "
+                                class="skills__content">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde omnis maiores fuga excepturi
+                                eligendi veritatis molestiae, commodi sit nulla ut quidem corrupti ducimus,
+                                nostrum odit, eius aut molestias nihil at dignissimos odio quos modi reiciendis.
+          
+                              </div>
+                              <div style="margin-top: 10px;">
+                              <button class="button">
+                <div class="icon">
+                  <svg class="top">
+                    <use xlink:href="#top"></use>
+                  </svg>
+                  <svg class="bottom">
+                    <use xlink:href="#bottom"></use>
+                  </svg>
+                </div>
+                <div class="text">Sil</div>
+              </button>
+          
+              <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+                <symbol id="top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M15,3.75 C15.5522847,3.75 16,4.19771525 16,4.75 L16,5.75 L18.25,5.75 C18.6642136,5.75 19,6.08578644 19,6.5 C19,6.91421356 18.6642136,7.25 18.25,7.25 L5.75,7.25 C5.33578644,7.25 5,6.91421356 5,6.5 C5,6.08578644 5.33578644,5.75 5.75,5.75 L8,5.75 L8,4.75 C8,4.19771525 8.44771525,3.75 9,3.75 L15,3.75 Z M14,5 L10,5 C9.72385763,5 9.5,5.22385763 9.5,5.5 C9.5,5.74545989 9.67687516,5.94960837 9.91012437,5.99194433 L10,6 L14,6 C14.2761424,6 14.5,5.77614237 14.5,5.5 C14.5,5.25454011 14.3231248,5.05039163 14.0898756,5.00805567 L14,5 Z"
+                  ></path>
+                </symbol>
+                <symbol
+                  id="bottom"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M7.02498527,8.25 L16.9751371,8.25 C17.5411532,8.25 18,8.69771525 18,9.25 C18,9.2951932 17.9968602,9.34033442 17.9906022,9.3851132 L16.6878729,18.7066989 C16.6389095,19.0569074 16.4041276,19.3558931 16.0703039,19.4931212 C14.8428392,19.9977071 13.4860916,20.25 12.0000612,20.25 C10.5140229,20.25 9.1572688,19.9977044 7.92979891,19.4931132 C7.59597391,19.3558774 7.36118974,19.0568881 7.31224574,18.7066728 L6.00952014,9.3851132 C5.93304388,8.83789281 6.32568685,8.33379079 6.88651275,8.25916983 C6.93240487,8.25306363 6.97866843,8.25 7.02498527,8.25 Z"
+                  ></path>
+                </symbol>
+              </svg>
+                             
+            </div>
+                            </div>
+                          </div>
+          
+                        </div>
+                      </section>
+          
+                    </div>
+                  </div>
+                </div>
+          
+                <div class="col-lg-12 col-md-12 col-sm-12" style="margin:auto; justify-content:center; align-items:center;">
+                  <div class="row"  style="margin:auto; justify-content:center; align-items:center;">
+                    <div class="col-lg-12 col-md-12 col-sm-12 " style="margin:auto; justify-content:center; align-items:center;">
+                    <section class="contact section" id="contact" style="margin:auto; justify-content:center; align-items:center;">
+                       
+          
+                          <div class="contact__container container grid" style="  margin:auto; display: flex; justify-content:center; align-items:center;">
+                          
+                              <div class="contact__content" style="margin:auto; justify-content:center; align-items:center;" >
+                               
+          
+                                   <form class="cmmntfrm"  >
+                                      <div class="contact__form-div contact__form-area" style="display: flex; justify-content: center;  " > 
+                                          <label for="" class="contact__form-tag">Görüşünü belirt..</label>
+                                          <textarea name="" id="" cols="30" placeholder="" rows="10" class="contact__form-input"></textarea>
+                                      </div>
+          
+                                      <button class="button2" >
+                                          <span class="default">Yorum yap</span>
+                                          <span class="success">Yorum yap</span>
+                                          <div class="left"></div>
+                                          <div class="right"></div>
+                                      </button>
+          
+                                      <!-- dribbble - twitter -->
+                                      <a class="dribbble" href="https://dribbble.com/ai" target="_blank"><img src="https://cdn.dribbble.com/assets/dribbble-ball-mark-2bd45f09c2fb58dbbfb44766d5d1d07c5a12972d602ef8b32204d28fa3dda554.svg" alt=""></a>
+                                      <!-- partial -->
+                                  </form>
+                              </div>
+                          </div>
+                      </section>
+          
+          
+                    </div>
+                  </div>
+                </div>
+          
+          
+          
+          
+              </div>
+          
+          
+          
+          
+              <div class="container"></div>
+          
+          
+          
+            </main>
+          </div>
+          
+          <?php require_once('../layouts/footer.php'); ?>
+          
+          
+          
+          <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js'></script>
+          
+          <script>   
+            document.querySelectorAll(".button").forEach((button) => {
+                let text = button.querySelector(".text");
+                text.innerHTML =
+                  "<span>" +
+                  text.textContent.trim().split("").join("</span><span>") +
+                  "</span>";
+                button.addEventListener("click", (e) => {
+                  if (!button.classList.contains("delete")) {
+                    button.classList.add("delete");
+                    setTimeout(() => button.classList.remove("delete"), 2400);
+                  }
+                  e.preventDefault();
+                });
+              });
+            
+            
+              document.querySelectorAll('.button').forEach(button => {
+
+let getVar = variable => getComputedStyle(button).getPropertyValue(variable);
+
+button.addEventListener('click', e => {
+
+    if(!button.classList.contains('active')) {
+
+        button.classList.add('active');
+
+        gsap.to(button, {
+            keyframes: [{
+                '--left-wing-first-x': 50,
+                '--left-wing-first-y': 100,
+                '--right-wing-second-x': 50,
+                '--right-wing-second-y': 100,
+                duration: .2,
+                onComplete() {
+                    gsap.set(button, {
+                        '--left-wing-first-y': 0,
+                        '--left-wing-second-x': 40,
+                        '--left-wing-second-y': 100,
+                        '--left-wing-third-x': 0,
+                        '--left-wing-third-y': 100,
+                        '--left-body-third-x': 40,
+                        '--right-wing-first-x': 50,
+                        '--right-wing-first-y': 0,
+                        '--right-wing-second-x': 60,
+                        '--right-wing-second-y': 100,
+                        '--right-wing-third-x': 100,
+                        '--right-wing-third-y': 100,
+                        '--right-body-third-x': 60
+                    })
+                }
+            }, {
+                '--left-wing-third-x': 20,
+                '--left-wing-third-y': 90,
+                '--left-wing-second-y': 90,
+                '--left-body-third-y': 90,
+                '--right-wing-third-x': 80,
+                '--right-wing-third-y': 90,
+                '--right-body-third-y': 90,
+                '--right-wing-second-y': 90,
+                duration: .2
+            }, {
+                '--rotate': 50,
+                '--left-wing-third-y': 95,
+                '--left-wing-third-x': 27,
+                '--right-body-third-x': 45,
+                '--right-wing-second-x': 45,
+                '--right-wing-third-x': 60,
+                '--right-wing-third-y': 83,
+                duration: .25
+            }, {
+                '--rotate': 55,
+                '--plane-x': -8,
+                '--plane-y': 24,
+                duration: .2
+            }, {
+                '--rotate': 40,
+                '--plane-x': 45,
+                '--plane-y': -180,
+                '--plane-opacity': 0,
+                duration: .3,
+                onComplete() {
+                    setTimeout(() => {
+                        button.removeAttribute('style');
+                        gsap.fromTo(button, {
+                            opacity: 0,
+                            y: -8
+                        }, {
+                            opacity: 1,
+                            y: 0,
+                            clearProps: true,
+                            duration: .3,
+                            onComplete() {
+                                button.classList.remove('active');
+                            }
+                        })
+                    }, 2000)
+                }
+            }]
+        })
+
+        gsap.to(button, {
+            keyframes: [{
+                '--text-opacity': 0,
+                '--border-radius': 0,
+                '--left-wing-background': getVar('--primary-darkest'),
+                '--right-wing-background': getVar('--primary-darkest'),
+                duration: .1
+            }, {
+                '--left-wing-background': getVar('--primary'),
+                '--right-wing-background': getVar('--primary'),
+                duration: .1
+            }, {
+                '--left-body-background': getVar('--primary-dark'),
+                '--right-body-background': getVar('--primary-darkest'),
+                duration: .4
+            }, {
+                '--success-opacity': 1,
+                '--success-scale': 1,
+                duration: .25,
+                delay: .25
+            }]
+        })
+
+    }
+
+})
+
+});
+
+            
+         
+           $(".search-btn").click(function(){
+             $(".wrapper").addClass("active");
+             $(this).css("display", "none");
+             $(".search-data").fadeIn(500);
+             $(".close-btn").fadeIn(500);
+             $(".search-data .line").addClass("active");
+             setTimeout(function(){
+               $("input").focus();
+               $(".search-data label").fadeIn(500);
+               $(".search-data span").fadeIn(500);
+             }, 800);
+           });
+           $(".close-btn").click(function(){
+             $(".wrapper").removeClass("active");
+             $(".search-btn").fadeIn(800);
+             $(".search-data").fadeOut(500);
+             $(".close-btn").fadeOut(500);
+             $(".search-data .line").removeClass("active");
+             $("input").val("");
+             $(".search-data label").fadeOut(500);
+             $(".search-data span").fadeOut(500);
+           });
+        </script>
+     
+    </body>
+    </html>
